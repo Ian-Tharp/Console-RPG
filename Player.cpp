@@ -6,15 +6,19 @@ Player::Player() {
     Class = "None";
     CurExp = -1;
     BufferExp = -1;
-    MaxExp = -1;
+    
+    for (int i = 1; i < 50; i++) {
+        MaxExp.push_back((i * 10) * 2);
+    }
+
     Level = 0;
     Strength = 0;
     Dexterity = 0;
     Intelligence = 0;
     Wisdom = 0;
     Charisma = 0;
-    CurHealth = -1;
-    MaxHealth = -1;
+    CurHealth = -1.0f;
+    MaxHealth = -1.0f;
 }
 
 //Parameterized Constructor
@@ -24,7 +28,7 @@ Player::Player(std::string name, std::string spec) {
 }
 
 //Increase CurrentHealth by input amount
-void Player::RegenHealth(int health) {
+void Player::RegenHealth(float health) {
     CurHealth += health;
 }
 
@@ -42,23 +46,22 @@ int Player::GetDexterity() { return Dexterity; }
 int Player::GetIntelligence() { return Intelligence; }
 int Player::GetWisdom() { return Wisdom; }
 int Player::GetCharisma() { return Charisma; }
-void Player::SetCurrentHealth(int amount) { CurHealth = amount; }
-void Player::SetMaxHealth(int amount) { MaxHealth = amount; }
+void Player::SetCurrentHealth(float amount) { CurHealth = amount; }
+void Player::SetMaxHealth(float amount) { MaxHealth = amount; }
 void Player::SetStrength(int amount) { Strength = amount; }
 void Player::SetDexterity(int amount) { Dexterity = amount; }
 void Player::SetIntelligence(int amount) { Intelligence = amount; }
 void Player::SetWisdom(int amount) { Wisdom = amount; }
 void Player::SetCharisma(int amount) {Charisma = amount; }
 
-
-
 //Increase CurExp by input amount, if player gains a level, store buffer to add to next
 //CurExp amount after level up.
 void Player::GainExp(int amount) {
     CurExp += amount;
-    if (CurExp >= MaxExp) {
-        if (CurExp > MaxExp) {
-            BufferExp = CurExp - MaxExp;
+    int temp = MaxExp[Level];
+    if (CurExp >= temp) {
+        if (CurExp > temp) {
+            BufferExp = CurExp - temp;
         }
         LevelUp();
         GainExp(BufferExp);

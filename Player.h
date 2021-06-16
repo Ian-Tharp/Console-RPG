@@ -4,8 +4,7 @@
 #include <string>
 #include <vector>
 
-class Player
-{
+class Player {
     public:
         Player();
         Player(std::string name, std::string spec);
@@ -16,10 +15,10 @@ class Player
         //Player health status
         int GetCurrentHealth();
         int GetMaxHealth();
-        void SetCurrentHealth(int amount);
-        void SetMaxHealth(int amount);
+        void SetCurrentHealth(float amount);
+        void SetMaxHealth(float amount);
 
-        void RegenHealth(int health);
+        void RegenHealth(float health);
         bool PlayerDeath();
 
         //Attributes
@@ -39,7 +38,8 @@ class Player
         std::string Class;
         int CurExp;
         int BufferExp;
-        int MaxExp;
+        std::vector<int> MaxExp;
+
         int Level;
         int Strength, Dexterity, Intelligence, Wisdom, Charisma;
         float CurHealth;
