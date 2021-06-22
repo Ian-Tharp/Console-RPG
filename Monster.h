@@ -8,7 +8,7 @@ class Monster {
     public:
         //Constructors
         Monster();
-        Monster(std::string name)
+        Monster(std::string name);
 
         void Randomization();
 
@@ -36,6 +36,7 @@ class Monster {
         
         //Calculation stats
         int DamageAmount, SpellAmount;
+        float DodgeChance, ParryChance, HitChance;
         
         bool isDead;
 };

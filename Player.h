@@ -11,6 +11,9 @@ class Player {
 
         void GainExp(int amount);
         void LevelUp();
+        int GetCurExp();
+        int GetMaxExp();
+        int GetLevel();
 
         //Player health status
         int GetCurrentHealth();
@@ -33,6 +36,9 @@ class Player {
         void SetWisdom(int amount);
         void SetCharisma(int amount);
 
+        //Update stats
+        void UpdateStatValues();
+
     private:
         std::string Name;
         std::string Class;
@@ -40,9 +46,14 @@ class Player {
         int BufferExp;
         std::vector<int> MaxExp;
 
+        //Attributes
         int Level;
         int Strength, Dexterity, Intelligence, Wisdom, Charisma;
         float CurHealth;
         float MaxHealth;
         bool isDead;
+
+        //Calculation stats
+        int DamageAmount, SpellAmount;
+        float DodgeChance, ParryChance, HitChance;
 };
