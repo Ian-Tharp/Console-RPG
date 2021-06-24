@@ -25,6 +25,17 @@ class Monster {
         void SetCurrentHealth(float amount);
         void SetMaxHealth(float amount);
 
+        int GetStrength();
+        int GetDexterity();
+        int GetIntelligence();
+        int GetWisdom();
+        int GetCharisma();
+        void SetStrength(int amount);
+        void SetDexterity(int amount);
+        void SetIntelligence(int amount);
+        void SetWisdom(int amount);
+        void SetCharisma(int amount);
+
         //Add health to current health
         void RegenHealth(float health);
 
