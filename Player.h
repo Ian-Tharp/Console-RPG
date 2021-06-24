@@ -22,6 +22,7 @@ class Player {
         void SetMaxHealth(float amount);
 
         void RegenHealth(float health);
+        void TakeDamage(float amount);
         bool PlayerDeath();
 
         //Attributes
@@ -36,8 +37,17 @@ class Player {
         void SetWisdom(int amount);
         void SetCharisma(int amount);
 
-        //Update stats
-        void UpdateStatValues();
+        void AddStrength(int amount);
+        void AddDexterity(int amount);
+        void AddIntelligence(int amount);
+        void AddWisdom(int amount);
+        void AddCharisma(int amount);
+        void RemoveStrength(int amount);
+        void RemoveDexterity(int amount);
+        void RemoveIntelligence(int amount);
+        void RemoveWisdom(int amount);
+        void RemoveCharisma(int amount);
+
 
     private:
         std::string Name;

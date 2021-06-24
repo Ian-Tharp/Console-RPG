@@ -12,8 +12,8 @@ int GenerateChoices() {
 }
 
 void DisplayStats(Player player) {
-    std::cout << "Health:\t\t" << player.GetCurrentHealth() << "/" << player.GetMaxHealth() << std::endl;
-    std::cout << "Experience:\t" << player.GetCurExp() << "/" << player.GetMaxExp() << std::endl;
+    std::cout << "Health:\t\t" << player.GetCurrentHealth() << " / " << player.GetMaxHealth() << std::endl;
+    std::cout << "Experience:\t" << player.GetCurExp() << " / " << player.GetMaxExp() << std::endl;
     std::cout << "Strength:\t" << player.GetStrength() << std::endl;
     std::cout << "Dexterity:\t" << player.GetDexterity() << std::endl;
     std::cout << "Intelligence:\t" << player.GetIntelligence() << std::endl;
@@ -21,7 +21,11 @@ void DisplayStats(Player player) {
     std::cout << "Charisma:\t\t" << player.GetCharisma() << std::endl;
 }
 
-
+void MainMenu() {
+    std::cout << "1. New Game" << std::endl;
+    std::cout << "2. Continue Game" << std::endl;
+    std::cout << "3. Quit" << std::endl;
+}
 
 //Main
 int main() {
@@ -43,7 +47,7 @@ int main() {
     std::cout << "What is your character's class?" << std::endl;
     std::cout << "1. Warrior, 2. Cleric, 3. Thief, 4. Wizard\nEnter your choice: ";
 
-    while (choice < 0 || choice > 4) {
+    while (choice < 1 || choice > 4) {
         std::cin >> choice;
         if (choice <= 0) {
             std::cout << "Your choice was invalid. Please enter a number 1-4." << std::endl;
@@ -73,6 +77,7 @@ int main() {
     while (runningMain) {
         for (int i = 1; i <= 50; i++) {
             std::cout << i << ": " << PlayerCharacter.GetMaxExp() << std::endl;
+            PlayerCharacter.LevelUp();
         }
         runningMain = false;
     }

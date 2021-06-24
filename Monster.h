@@ -8,7 +8,7 @@ class Monster {
     public:
         //Constructors
         Monster();
-        Monster(std::string name);
+        Monster(std::string name, int level);
 
         void Randomization();
 
@@ -16,15 +16,22 @@ class Monster {
         void DealDamage();
         void TakeDamage(int amount);
 
+        //Randomizer to determine monster stats when constructed
+        void CalculateStats();
+
         //Sets and Gets
         int GetCurrentHealth();
         int GetMaxHealth();
         void SetCurrentHealth(float amount);
         void SetMaxHealth(float amount);
 
+        //Add health to current health
         void RegenHealth(float health);
 
+        //Retur that the monster is dead 
         bool MonsterDeath();
+
+        //Calculate how much experience drops on monster death
         int DroppedExperience();
 
     private:

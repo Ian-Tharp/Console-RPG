@@ -7,6 +7,7 @@ Player::Player() {
     CurExp = -1;
     BufferExp = -1;
     
+    //Generating exp table for leveling up
     for (int i = 1; i <= 50; i++) {
         MaxExp.push_back((i * 10) * 2);
     }
@@ -17,8 +18,8 @@ Player::Player() {
     Intelligence = 0;
     Wisdom = 0;
     Charisma = 0;
-    CurHealth = -1.0f;
-    MaxHealth = -1.0f;
+    CurHealth = 0.0f;
+    MaxHealth = 0.0f;
 }
 
 //Parameterized Constructor
@@ -31,17 +32,16 @@ Player::Player(std::string name, std::string spec) {
     //Generating exp table for leveling up
     for (int i = 1; i <= 50; i++) {
         int temp = i * 10 * 2;
-        std::cout << temp << std::endl;
         MaxExp.push_back(temp);
     }
-    std::cout << "Size test: " << MaxExp.size() << std::endl;
+    //std::cout << "Size test: " << MaxExp.size() << std::endl;
 
-    Level = 0;
-    Strength = 0;
-    Dexterity = 0;
-    Intelligence = 0;
-    Wisdom = 0;
-    Charisma = 0;
+    Level = 1;
+    Strength = 1;
+    Dexterity = 1;
+    Intelligence = 1;
+    Wisdom = 1;
+    Charisma = 1;
     CurHealth = 10.0f;
     MaxHealth = 10.0f;
 }
@@ -51,7 +51,7 @@ void Player::RegenHealth(float health) {
     CurHealth += health;
 }
 
-//Player death function
+//Return that the player is dead
 bool Player::PlayerDeath() { isDead = true; return isDead; }
 
 //Sets and Gets
@@ -73,6 +73,19 @@ void Player::SetCharisma(int amount) {Charisma = amount; }
 int Player::GetCurExp() { return CurExp; }
 int Player::GetMaxExp() { return MaxExp[Level]; }
 int Player::GetLevel() { return Level; }
+
+    //Adding Attributes
+void Player::AddStrength(int amount) { Strength += amount; }
+void Player::AddDexterity(int amount) { Dexterity += amount; }
+void Player::AddIntelligence(int amount) { Intelligence += amount; }
+void Player::AddWisdom(int amount) { Wisdom += amount; }
+void Player::AddCharisma(int amount) { Charisma += amount; }
+    //Subtracting Attributes
+void Player::RemoveStrength(int amount) { Strength -= amount; }
+void Player::RemoveDexterity(int amount) { Dexterity -= amount; }
+void Player::RemoveIntelligence(int amount) { Intelligence -= amount; }
+void Player::RemoveWisdom(int amount) { Wisdom -= amount; }
+void Player::RemoveCharisma(int amount) { Charisma -= amount; }
 
 //Increase CurExp by input amount, if player gains a level, store buffer to add to next
 //CurExp amount after level up.
@@ -99,5 +112,3 @@ void Player::LevelUp() {
     ++Charisma;
     RegenHealth(Level * 10);
 }
-
-//Update function to call after level up or stat change
