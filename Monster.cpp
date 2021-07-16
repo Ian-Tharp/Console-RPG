@@ -26,9 +26,19 @@ Monster::Monster(std::string name, int level) {
 
 //Randomizer to determine monster stats when constructed
 void Monster::CalculateStats() {
-    int randomizer = rand() % Level + 1;
-    int LevelModifier = Level + randomizer;
+    int randomStats[5];
     for (int i = 0; i < 5; i++) {
-        
+        randomStats[i] = rand() % Level + 1;
     }
+
+    //Randomize base monster stats
+    Strength = randomStats[0] + Level;
+    Dexterity = randomStats[1] + Level;
+    Intelligence = randomStats[2] + Level;
+    Wisdom = randomStats[3] + Level;
+    CurrentHealth = (Level * 10) + randomStats[4];
+    MaxHealth = (Level * 10) + randomStats[4];
+
+    
+    
 }

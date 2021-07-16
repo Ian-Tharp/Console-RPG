@@ -36,6 +36,17 @@ class Monster {
         void SetWisdom(int amount);
         void SetCharisma(int amount);
 
+        int GetDamageAmount();
+        int GetSpellAmount();
+        int GetDodge();
+        int GetParry();
+        int GetHit();
+        void SetDamageAmount(int amount);
+        void SetSpellAmount(int amount);
+        void SetDodge(float amount);
+        void SetParry(float amount);
+        void SetHit(float amount);
+
         //Add health to current health
         void RegenHealth(float health);
 
