@@ -38,7 +38,10 @@ void Monster::CalculateStats() {
     Wisdom = randomStats[3] + Level;
     CurrentHealth = (Level * 10) + randomStats[4];
     MaxHealth = (Level * 10) + randomStats[4];
+    
+}
 
-    
-    
+//Function to determine how much experience points are dropped when the monster dies
+int Monster::DroppedExperience() {
+    int ExpModifier = Level * 1.5;
 }
