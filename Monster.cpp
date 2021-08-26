@@ -17,8 +17,8 @@ Monster::Monster() {
     HitChance = 0.0f;
     isDead = false;
 }
-//Parameterized constructor
-Monster::Monster(std::string name, int level) {
+//Spawning monster
+void Monster::SpawnMonster(std::string name, int level) {
     Name = name;
     Level = level;
     CalculateStats();
@@ -30,7 +30,6 @@ void Monster::CalculateStats() {
     for (int i = 0; i < 5; i++) {
         randomStats[i] = rand() % Level + 1;
     }
-
     //Randomize base monster stats
     Strength = randomStats[0] + Level;
     Dexterity = randomStats[1] + Level;

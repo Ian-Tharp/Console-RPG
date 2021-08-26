@@ -8,7 +8,7 @@ class Monster {
     public:
         //Constructors
         Monster();
-        Monster(std::string name, int level);
+        void SpawnMonster(std::string name, int level);
 
         void Randomization();
 

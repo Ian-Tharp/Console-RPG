@@ -28,11 +28,15 @@ public:
     //Event only available based on player attributes
     void OpenSecretDoor();
 
+    //Gets
+    int GetNumDoors();
+    int GetNumMonsters();
 
 private:
     int NumberOfDoors;
     int NumberOfMonsters;
 
-
+    std::vector<std::vector<int>> Doors;
+    std::vector<std::vector<Monster>> Monsters;
 
 };
